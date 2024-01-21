@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # packge apps:
     "taggit",
+
+    # My Apps
+    "products",
 ]
 
 MIDDLEWARE = [
