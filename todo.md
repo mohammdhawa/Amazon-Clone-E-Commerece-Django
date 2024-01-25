@@ -1,5 +1,4 @@
 Products:
-    - list & detail products
     - list detail brands
     - reviws
     - pagination
