@@ -11,6 +11,7 @@ from .models import Product, Brand, Review, ProductImages
 
 class ProductList(ListView):
     model = Product
+    paginate_by = 100
 
 
 class ProductDetail(DetailView):
@@ -27,6 +28,7 @@ class ProductDetail(DetailView):
 
 class BrandList(ListView):
     model = Brand
+    paginate_by = 50
 
 
 
@@ -43,6 +45,7 @@ class BrandList(ListView):
 class BrandDetail(ListView):
     model = Product
     template_name = 'products/brand_detail.html'
+    paginate_by = 100
 
     def get_queryset(self):
         brand = Brand.objects.get(slug=self.kwargs['slug'])
