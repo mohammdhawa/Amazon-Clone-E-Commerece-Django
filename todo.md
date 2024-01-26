@@ -1,7 +1,4 @@
 Products:
-    - list detail brands
-    - reviws
-    - pagination
     - API products
 
 
