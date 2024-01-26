@@ -4,6 +4,8 @@ from .models import Product, Brand, Review, ProductImages
 
 from . import serializers
 
+from .pagination import MyPagination
+
 
 
 class ProductListAPI(generics.ListAPIView):
@@ -19,11 +21,12 @@ class ProductDetailAPI(generics.RetrieveAPIView):
 
 
 class BrandListAPI(generics.ListAPIView):
-    queryset =  Product.objects.all()
+    queryset =  Brand.objects.all()
     serializer_class = serializers.BrandListSerializer
+    pagination_class = MyPagination
 
 
 
 class BrandDetailAPI(generics.RetrieveAPIView):
-    queryset =  Product.objects.all()
+    queryset =  Brand.objects.all()
     serializer_class = serializers.BrandDetailSerializer
