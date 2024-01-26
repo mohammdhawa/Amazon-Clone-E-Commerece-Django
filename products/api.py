@@ -6,11 +6,15 @@ from . import serializers
 
 from .pagination import MyPagination
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 
 class ProductListAPI(generics.ListAPIView):
     queryset =  Product.objects.all()
     serializer_class = serializers.ProductListSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['flag', 'brand']
 
 
 
