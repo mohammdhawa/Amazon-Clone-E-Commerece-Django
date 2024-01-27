@@ -37,7 +37,16 @@ class Product(models.Model):
     
     def __str__(self):
         return self.name
-
+    
+    def mahmoud(self):
+        pass
+    
+    class Meta:
+        # class within a model that contains metadata about the model itself. 
+        # anything I write here .. will be applied on every query that return from this object
+        ordering = ['-id'] # to get the last item first and so on
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
 
 
