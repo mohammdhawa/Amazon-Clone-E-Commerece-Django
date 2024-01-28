@@ -1,5 +1,5 @@
 Products:
-    - queryset API: models
+    - home page
     - add review
 
 Order:
