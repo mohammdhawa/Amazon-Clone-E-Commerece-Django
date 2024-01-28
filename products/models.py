@@ -38,13 +38,21 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
-    def mahmoud(self):
-        pass
+    def review_count(self):
+        reivews = self.product_review.all().count()
+        return reivews
+    
+    def avg_rate(self):
+        reviews = self.product_review.all()
+        
+        if reviews:
+            return round(sum(rev.rate for rev in reviews) / len(reviews), 1)
+        return 0
     
     class Meta:
         # class within a model that contains metadata about the model itself. 
         # anything I write here .. will be applied on every query that return from this object
-        ordering = ['-id'] # to get the last item first and so on
+        ordering = ['id'] # to get the last item first and so on
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
 
