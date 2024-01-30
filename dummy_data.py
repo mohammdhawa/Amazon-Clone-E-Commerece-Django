@@ -28,7 +28,7 @@ def seed_brand(n):
 def seed_products(n):
     fake = Faker()
 
-    flag_types = ['NEW', 'SALE']
+    flag_types = ['NEW', 'SALE', 'FEATURE']
 
     brands = Brand.objects.all()
 
@@ -38,7 +38,8 @@ def seed_products(n):
     for _ in range(n):
         Product.objects.create(
             name = fake.name(),
-            flag = flag_types[random.randint(0,1)],
+            # flag = flag_types[random.randint(0,2)],
+            flag = flag_types[2],
             price = round(random.uniform(1.99, 99.99),2),
             image = f"brand/{images[random.randint(0,9)]}",
             sku = random.randint(10000, 99999),
@@ -79,3 +80,4 @@ def seed_users(n):
 
 
 
+seed_products(100)
