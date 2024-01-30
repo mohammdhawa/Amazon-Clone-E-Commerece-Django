@@ -23,6 +23,5 @@ Intermeidate:
     - redis
     - Ajax
     - docker
-    - caching
     - linting
     - deploy
