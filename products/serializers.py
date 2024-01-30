@@ -2,6 +2,9 @@ from rest_framework import serializers
 
 from .models import Brand, Product, Review, ProductImages
 
+from taggit.serializers import (TagListSerializerField,
+                                TaggitSerializer)
+
 
 
 class ProductImagesSerializer(serializers.ModelSerializer):
@@ -21,37 +24,29 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 
-class ProductListSerializer(serializers.ModelSerializer):
+class ProductListSerializer(TaggitSerializer, serializers.ModelSerializer):
     brand = serializers.StringRelatedField()
-    review_count = serializers.SerializerMethodField()
-    avg_rate = serializers.SerializerMethodField()
+
+    tags = TagListSerializerField()
 
     class Meta:
         model = Product
-        fields = "__all__"
-    
-
-    def get_review_count(self, object):
-        reivews = object.product_review.all().count()
-        return reivews
-    
-    def get_avg_rate(self, obj):
-        reviews = obj.product_review.all()
-        
-        if reviews:
-            return round(sum(rev.rate for rev in reviews) / len(reviews), 1)
-        return 0
+        fields = ('id', 'name', 'flag', 'price', 'image', 'sku', 'subtitle', 'description',
+                  'brand', 'tags', 'slug', 'review_count', 'avg_rate')
 
 
 
-class ProductDetailSerializer(serializers.ModelSerializer):
+class ProductDetailSerializer(TaggitSerializer, serializers.ModelSerializer):
     brand = serializers.StringRelatedField()
     images = ProductImagesSerializer(source='product_images', many=True)
     reviews = ReviewSerializer(source='product_review', many=True)
 
+    tags = TagListSerializerField()
+
     class Meta:
         model = Product
-        fields = "__all__"
+        fields = ('id', 'name', 'flag', 'price', 'image', 'sku', 'subtitle', 'description',
+                  'brand', 'tags', 'slug', 'review_count', 'avg_rate', 'images', 'reviews')
 
 
 
