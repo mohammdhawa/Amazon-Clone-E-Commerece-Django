@@ -9,9 +9,11 @@ from .models import Product, Brand, Review, ProductImages
 from django.db.models import Q, F, Value
 from django.db.models.aggregates import Count, Max, Min, Avg, Sum
 
+from django.views.decorators.cache import cache_page
+
 # Create your views here.
 
-
+@cache_page(60 * 1)
 def mydebug(request):
     # data = Product.objects.all()
     
@@ -91,7 +93,9 @@ def mydebug(request):
     # Annotations allow you to perform calculations on the data retrieved 
     # from the database and include the results in the queryset
     # data = Product.objects.annotate(my_sum=Value(0))
-    data = Product.objects.annotate(price_with_tax=F('price')*1.15)
+    # data = Product.objects.annotate(price_with_tax=F('price')*1.15)
+
+    data = Product.objects.all()
 
 
 
