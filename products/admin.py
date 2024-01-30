@@ -17,6 +17,7 @@ class ProductReviews(admin.TabularInline):
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImagesInline, ProductReviews]
+    list_filter = ["flag"]
 
 
 admin.site.register(Product, ProductAdmin)
