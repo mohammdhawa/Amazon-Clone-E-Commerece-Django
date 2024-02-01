@@ -1,7 +1,3 @@
-Products:
-    - home page
-    - add review
-
 Order:
     - design models
     - add views Orders
