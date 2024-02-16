@@ -58,4 +58,16 @@ Users:
 
 App Orders:
     data:
-        - 
+        - address
+        - product
+        - brand
+        - price
+        - quantity
+        - order_time
+        - delivery_time
+        - order_id
+        - total_item
+        - discount
+        - delivery fee
+        - status [Recieved, Processed, Shipped, Delivered ]
+           
