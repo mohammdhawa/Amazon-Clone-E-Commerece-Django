@@ -1830,7 +1830,7 @@
                         </div>
                         <div class="brand-meta">
                             <h4>{{item}}</h4>
-                            <p>({{item.product_count}})</p>
+                            <p>({{item.product_count}} items)</p>
                         </div>
                     </div>
                     {% endfor %}
@@ -1881,7 +1881,7 @@
                                     <li class="fas fa-star"></li>
                                     <li class="fas fa-star"></li>
                                 </ul>
-                                <img src="images/avatar/01.jpg" alt="testimonial">
+                                <img src="{{item.image.url}}" alt="testimonial">
                             </div>
                             {% endfor %}
                                 
