@@ -5,7 +5,7 @@ from django.core.cache import cache
 
 def get_settings(request):
     try:
-        settings_data = cache['settings_data']
+        settings_data = cache.get('settings_data')
         print("New Cache")
     except Exception:
         print("New Data")
