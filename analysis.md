@@ -69,5 +69,5 @@ App Orders:
         - total_item
         - discount
         - delivery fee
-        - status [Recieved, Processed, Shipped, Delivered ]
+        - status [Recieved, Processed, Shipped, Delivered ] 
            
