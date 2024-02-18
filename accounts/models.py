@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 ADDRESS_STATUS = (
-    ('Home', 'Home')
+    ('Home', 'Home'),
     ('Office', 'Office'),
     ('Bussines', 'Bussines'),
     ('Other', 'Other')
